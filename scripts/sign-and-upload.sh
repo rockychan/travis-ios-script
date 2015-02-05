@@ -5,7 +5,7 @@ if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
 fi
 
 PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_NAME.mobileprovision"
-OUTPUTDIR="$PWD/build/Release-iphoneos"
+OUTPUTDIR="$PWD/build/$CONFIGURATION_NAME-iphoneos"
 
 xcrun -log -sdk iphoneos \
 PackageApplication "$OUTPUTDIR/$APP_NAME.app" \
