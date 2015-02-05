@@ -30,7 +30,7 @@ if [[ "$TRAVIS_BRANCH" == "testflight" ]]; then
   fi
 
   echo "At testflight branch, upload to testflight."
-  deliver testflight "$OUTPUTDIR/$APP_NAME.ipa"
+  deliver testflight "$OUTPUTDIR/$APP_NAME.ipa" -a $APP_ID_ON_ITUNES
 
   if [[ $? -ne 0 ]]; then
     echo "Error: Fail uploading to TestFlight"
