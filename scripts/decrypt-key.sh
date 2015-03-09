@@ -30,6 +30,14 @@ openssl aes-256-cbc \
 -in "profile/$PROFILE_NAME.mobileprovision.enc" -d -a \
 -out "profile/$PROFILE_NAME.mobileprovision"
 
+if [[  -n "$APP_EXTENSION_PROFILE_NAME" ]]; then
+    echo "INFO: Provision profile for app extension found"
+    openssl aes-256-cbc \
+    -k "$ENCRYPTION_SECRET" \
+    -in "profile/$APP_EXTENSION_PROFILE_NAME.mobileprovision.enc" -d -a \
+    -out "profile/$APP_EXTENSION_PROFILE_NAME.mobileprovision"
+fi
+
 openssl aes-256-cbc \
 -k "$ENCRYPTION_SECRET" \
 -in "certs/dist.cer.enc" -d -a \

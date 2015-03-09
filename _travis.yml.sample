@@ -3,9 +3,8 @@ before_install:
 - export LANG=en_US.UTF-8
 - brew update
 - gem install cocoapods
-- gem install deliver
-- brew install phantomjs
 before_script:
+- ./scripts/init-config.sh
 - ./scripts/decrypt-key.sh
 - ./scripts/add-key.sh
 script:
@@ -35,4 +34,7 @@ env:
   - BUILD_SDK="iphonesimulator8.1"    # SDK for building and testing
   - RELEASE_BUILD_SDK="iphoneos8.1"   # SDK for release build
   - DELIVER_USER="" # Apple Testflight user
-  - APP_ID_ON_ITUNES="" # Apple app id on itunes connect 
+  - DELIVER_APP_ID="" # App ID on Apple Testflight
+  - APP_EXTENSION_PROFILE_NAME="" # provision profile name for app extension, (if any)
+  - APPLE_TESTFLIGHT_UPLOAD_BRANCH=""  # branch name for testflight
+  - HOCKEYAPP_UPLOAD_BRANCH=""         # branch name for hockeyapp

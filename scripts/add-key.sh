@@ -27,3 +27,7 @@ security default-keychain -s ios-build.keychain
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 
 cp "./profile/$PROFILE_NAME.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
+if [[ -n "$APP_EXTENSION_PROFILE_NAME" ]]; then
+	echo "found APP_EXTENSION_PROFILE_NAME"
+	cp "./profile/$APP_EXTENSION_PROFILE_NAME.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
+fi
